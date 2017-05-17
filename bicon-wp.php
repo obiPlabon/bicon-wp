@@ -2,10 +2,10 @@
 /*
 Plugin Name: Bicon WP
 Plugin URI: http://bicon.lab.themebucket.net/
-Description: Bicon is a set of well crafted line icons. Bicon WP is the easiest implementation for WordPress so that you can easily use Bicons in your WordPress site.
-Version: 1.0.0
-Author: obiPlabon & ThemeBucket
-Author URI: https://obiPlabon.im/
+Description: Bicon is a package of well crafted line icons build from scratch. <strong>Bicon WP</strong> is the easiest way to use those line icons in your WordPress site.
+Version: 0.1.0
+Author: obiPlabon (ThemeBucket)
+Author URI: http://themebucket.net/
 License: GPLv2 or later
 Text Domain: bicon-wp
 */
@@ -25,11 +25,11 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-Copyright 2005-2015 Automattic, Inc.
+Copyright 2013-2017 ThemeBucket.
 */
 
 
-class Bicon {
+class BiconWP {
 
     public function __construct() {
         add_action( 'init', array( $this, 'init' ) );
@@ -58,7 +58,7 @@ class Bicon {
     }
 
     public function enqueue() {
-        wp_enqueue_style( 'bicon', plugin_dir_url( __FILE__ ) . 'assets/css/bicon.css', array(), '1.0.0' );
+        wp_enqueue_style( 'bicon', plugin_dir_url( __FILE__ ) . 'assets/css/bicon.css' );
 
         if ( $this->has_LiveComposer() ) {
             $bicon_style = <<<BICON
@@ -80,4 +80,4 @@ BICON;
 
 }
 
-new Bicon;
+new BiconWP;
